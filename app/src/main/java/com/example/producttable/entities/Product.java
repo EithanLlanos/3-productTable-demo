@@ -1,6 +1,7 @@
 package com.example.producttable.entities;
 
 public class Product {
+    static private int cnt = 0;
     private String id;
     private String name;
     private String desc;
@@ -13,6 +14,15 @@ public class Product {
         this.desc = desc;
         this.stock = stock;
         this.price = price;
+        cnt++;
+    }
+
+    public static int getCnt() {
+        return cnt;
+    }
+
+    public static void setCnt(int cnt) {
+        Product.cnt = cnt;
     }
 
     public String getId() {

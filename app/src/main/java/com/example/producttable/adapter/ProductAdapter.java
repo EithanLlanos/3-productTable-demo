@@ -17,33 +17,17 @@ import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-//        public  TextView textView;
-        TextView prodId, prodName, prodDesc, prodStock, prodPrice;
-        Button prodDel;
-        public ViewHolder(View itemView){
-            super(itemView);
-            prodId = itemView.findViewById(R.id.textView1);
-            prodName = itemView.findViewById(R.id.textView2);
-            prodDesc = itemView.findViewById(R.id.textView3);
-            prodStock = itemView.findViewById(R.id.textView4);
-            prodPrice = itemView.findViewById(R.id.textView5);
-            prodDel = itemView.findViewById(R.id.btn_del);
-        }
-
-    }
     ArrayList<Product> products;
 
     public ProductAdapter(ArrayList<Product> products) {
         this.products = products;
     }
 
-
     @NonNull
     @Override
     public ProductAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_layout, parent, false);
-        return  new ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -53,12 +37,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.prodName.setText(product.getName());
         holder.prodDesc.setText(product.getDesc());
         holder.prodStock.setText(String.valueOf(product.getStock()));
-        holder.prodPrice.setText(String.format("$%.2f",product.getPrice()));
-        holder.prodDel.setOnClickListener( v -> {
+        holder.prodPrice.setText(String.format("$%.2f", product.getPrice()));
+        holder.prodDel.setOnClickListener(v -> {
             products.remove(holder.getAdapterPosition());
             notifyItemRemoved(holder.getAdapterPosition());
-            notifyItemChanged(holder.getAdapterPosition(),products.size());
-            Toast.makeText(v.getContext(), "Product Removed", Toast.LENGTH_SHORT).show();
+            notifyItemChanged(holder.getAdapterPosition(), products.size());
+            Toast.makeText(v.getContext(), R.string.prodRemoved, Toast.LENGTH_SHORT).show();
         });
 
     }
@@ -66,6 +50,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public int getItemCount() {
         return products.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        //        public  TextView textView;
+        TextView prodId, prodName, prodDesc, prodStock, prodPrice;
+        Button prodDel;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            prodId = itemView.findViewById(R.id.textView1);
+            prodName = itemView.findViewById(R.id.textView2);
+            prodDesc = itemView.findViewById(R.id.textView3);
+            prodStock = itemView.findViewById(R.id.textView4);
+            prodPrice = itemView.findViewById(R.id.textView5);
+            prodDel = itemView.findViewById(R.id.btn_del);
+        }
+
     }
 
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tabla de Productos</string>
+    <string name="changeLang">Cambiar lenguaje de interfaz</string>
+    <string name="addProd">Añadir un producto</string>
+    <string name="priceView">"Precio: "</string>
+    <string name="stockView">"Cantidad: "</string>
+    <string name="descView">Descripción</string>
+    <string name="nameView">"Nombre: "</string>
+    <string name="add">Añadir</string>
+    <string name="prodRemoved">Producto removido</string>
+</resources>
