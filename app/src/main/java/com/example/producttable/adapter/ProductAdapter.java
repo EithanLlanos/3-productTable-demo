@@ -41,7 +41,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.prodDel.setOnClickListener(v -> {
             products.remove(holder.getAdapterPosition());
             notifyItemRemoved(holder.getAdapterPosition());
-            notifyItemChanged(holder.getAdapterPosition(), products.size());
+//            Redundant
+//            notifyItemChanged(holder.getAdapterPosition(), products.size());
             Toast.makeText(v.getContext(), R.string.prodRemoved, Toast.LENGTH_SHORT).show();
         });
 
